@@ -50,9 +50,61 @@ function checkConditions()
 {
   let item = document.getElementById("window");
   let item2 = document.getElementById("wall");
-  if ((item.style.left > item2.style.left) && i(tem.style.left < (item2.style.left + 100)))
+  let item3 = document.getElementById("roof");
+  let item4 = document.getElementById("triangle1");
+  let item5 = document.getElementById("triangle2");
+  let item6 = document.getElementById("triangle3");
+  let item7 = document.getElementById("treebase");
+  let checker = true;
+  if ((item.getBoundingClientRect().left > item2.getBoundingClientRect().left) && (item.getBoundingClientRect().left < (item2.getBoundingClientRect().left + 50)))
   {
     item.style.backgroundColor = 'green';
+    
+  }
+  else
+  {
+    item.style.backgroundColor = 'blue';
+    checker = checker && false;
+  }
+
+  if ((item3.getBoundingClientRect().left > item2.getBoundingClientRect().left-70) && (item3.getBoundingClientRect().left < (item2.getBoundingClientRect().left -40)))
+  {
+    item3.style.borderBottomColor = 'green';
+  }
+  else
+  {
+    item3.style.borderBottomColor = 'grey';
+    checker = checker && false;
+  }
+
+  if ((item4.getBoundingClientRect().left > item7.getBoundingClientRect().left-40) && (item4.getBoundingClientRect().left < (item7.getBoundingClientRect().left)))
+  {
+    item4.style.borderBottomColor = 'pink';
+  }
+  else
+  {
+    item4.style.borderBottomColor = 'grey';
+    checker = checker && false;
+  }
+
+  if ((item5.getBoundingClientRect().left > item7.getBoundingClientRect().left-40) && (item5.getBoundingClientRect().left < (item7.getBoundingClientRect().left)))
+  {
+    item5.style.borderBottomColor = 'pink';
+  }
+  else
+  {
+    item5.style.borderBottomColor = 'grey';
+    checker = checker && false;
+  }
+
+  if ((item6.getBoundingClientRect().left > item7.getBoundingClientRect().left-40) && (item6.getBoundingClientRect().left < (item7.getBoundingClientRect().left)))
+  {
+    item6.style.borderBottomColor = 'pink';
+  }
+  else
+  {
+    item6.style.borderBottomColor = 'grey';
+    checker = checker && false;
   }
 
 }

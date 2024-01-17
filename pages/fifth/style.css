@@ -93,7 +93,7 @@ body {
     border-left: 50px solid transparent;
     border-right: 50px solid transparent;
     border-bottom: 100px solid lightgreen;
-    transform: rotate(90deg);
+    /* transform: rotate(90deg); */
 
 }
 
@@ -121,7 +121,7 @@ body {
     border-left:120px solid transparent;
     border-right:120px solid transparent;
     border-bottom: 160px solid grey;
-    transform: rotate(45deg);
+    /* transform: rotate(45deg); */
 }
 #wall {
     width: 100px;
