@@ -1,62 +1,58 @@
-const latinPhrases = ["Consuetudo est altera natura", "Nota bene", "Nulla calamitas sola", "Per aspera ad astra"];
-const russianTranslations = ["Привычка - вторая натура", "Заметьте хорошо!", "Беда не приходит одна", "Через тернии к звёздам"];
+document.addEventListener("DOMContentLoaded", function () {
+  let isDragging = false;
+  let isRotating = false;
+  let offsetX, offsetY, currentX, currentY;
+  let rotationAngle = 0;
 
-let shuffledIndexes = [];
-let clickCount = 0;
-
-function shuffleArray(array) {
-  const shuffledArray = array.slice();
-  for (let i = shuffledArray.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
-  }
-  return shuffledArray;
-}
-
-function initializeIndexes() {
-  shuffledIndexes = shuffleArray(Array.from({ length: latinPhrases.length }, (_, index) => index));
-}
-
-initializeIndexes();
-
-function createRow() {
-  const tableBody = document.getElementById('phrasesTableBody');
-  if (shuffledIndexes.length === 0) {
-    alert('Фразы закончились');
-    return;
-  }
-
-  if (shuffledIndexes.length > 0) {
-    const latinIndex = shuffledIndexes.pop();
-    const russianIndex = latinIndex;
-
-    const row = tableBody.insertRow();
-    const cell1 = row.insertCell(0);
-    const cell2 = row.insertCell(1);
-
-    cell1.textContent = latinPhrases[latinIndex];
-    cell2.textContent = russianTranslations[russianIndex];
-
-
-
-    if (tableBody.children.length % 2 === 0) {
-      row.classList.add('class1');
-    } else {
-      row.classList.add('class2');
-    }
-  }
-}
-
-function changeFontStyle() {
-    clickCount++;
+  const draggableElements = document.querySelectorAll('.draggable');
   
-    const tableRows = document.getElementById('phrasesTableBody').getElementsByTagName('tr');
-    for (let i = 0; i < tableRows.length; i++) {
-      if (i % 2 === 1) {
-        const cells = tableRows[i].getElementsByTagName('td');
-        for (let j = 0; j < cells.length; j++) {
-          cells[j].style.fontWeight = clickCount % 2 === 0 ? 'bold' : 'normal';
-        }
-      }
-    }
+  document.addEventListener('mouseup', function () {
+    isDragging = false;
+    checkConditions();
+});
+  draggableElements.forEach(element => {
+      element.addEventListener('mousedown', function (e) {
+              isDragging = true;
+              offsetX = e.clientX - element.getBoundingClientRect().left;
+              offsetY = e.clientY - element.getBoundingClientRect().top / 2;
+      });
+
+      element.addEventListener('mousemove', function (e) {
+
+          if (isDragging) {
+              currentX = e.clientX - offsetX;
+              currentY = e.clientY - offsetY;
+
+              element.style.left = `${e.clientX-element.getBoundingClientRect().width / 2}px`;
+              element.style.top = `${e.clientY - element.getBoundingClientRect().height / 2 - 100}px`;
+          }
+      });
+
+
+      element.addEventListener('mouseout', function () {
+        isDragging = false;
+    }); 
+
+
+      element.addEventListener('dblclick', function () {
+          rotationAngle += 45;
+          element.style.transform = `rotate(${rotationAngle}deg)`;
+      });
+
+  });
+
+  document.addEventListener('mouseup', function () {
+      isRotating = false;
+  });
+});
+
+function checkConditions()
+{
+  let item = document.getElementById("window");
+  let item2 = document.getElementById("wall");
+  if ((item.style.left > item2.style.left) && i(tem.style.left < (item2.style.left + 100)))
+  {
+    item.style.backgroundColor = 'green';
   }
+
+}

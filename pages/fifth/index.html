@@ -5,7 +5,7 @@
         <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
         <link rel="stylesheet" href="style.css">
         <script src="script.js"></script>
-        <title>Fourth Task</title>
+        <title>Fifth Task</title>
     </head>
 <body class="body" id="suda">
     <header class="header">
@@ -33,24 +33,14 @@
         </nav>
     </header>
     <main>
-        <div class = "mainBack">
-            <div class="backtext">
-                <h1>DOM</h1>
-            </div>
-            <div id="content">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Латинский язык</th>
-                      <th>Русский язык</th>
-                    </tr>
-                  </thead>
-                  <tbody id="phrasesTableBody"></tbody>
-                </table>
-                <button onclick="createRow()">Создать</button>
-              </div>
-              <button onclick="changeFontStyle()">Перекрасить</button>         
-            
+        <div id="container">
+            <div id="treebase" class="draggable rotatable"></div>
+            <div id="triangle1" class="draggable rotatable"></div>
+            <div id="triangle2" class="draggable rotatable"></div>
+            <div id="triangle3" class="draggable rotatable"></div>
+            <div id="wall" class="draggable rotatable"></div>
+            <div id="roof" class="draggable rotatable"></div>
+            <div id="window" class="draggable rotatable"></div>
         </div>
     </main>
 <footer class="footer">

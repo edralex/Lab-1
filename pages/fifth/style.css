@@ -53,29 +53,90 @@ body {
     text-align: center;
   }
   
-  table {
-    margin: 20px auto;
-    border-collapse: collapse;
-    width: 60%;
-  }
+  /* body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  } */
   
-  th, td {
-    border: 1px solid #ddd;
-    padding: 10px;
-  }
+  /* .container {
+    position: absolute;
+  } */
   
-  th {
-    background-color: #f2f2f2;
-  }
-  
-  .class1 {
-    background-color: #ffd700; /* Жёлтый цвет */
-  }
-  
-  .class2 {
-    background-color: #87ceeb; /* Голубой цвет */
-  }
+  #container {
+    position: relative;
+    width: 600px;
+    height: 400px;
+}
 
+.draggable {
+    position: absolute;
+    cursor: pointer;
+}
+
+
+#treebase {
+    position: absolute;
+    top:300px;
+    left:600px;
+    width: 40px;
+    height: 60px;
+    background-color: brown;
+    
+}
+#triangle1 {
+    position: absolute;
+    top: 100px;
+    left: 300px;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid lightgreen;
+    transform: rotate(90deg);
+
+}
+
+#triangle2 {
+    position: absolute;
+    top: 100px;
+    left: 500px;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 80px solid lightseagreen;
+    transform: rotate(135deg);
+}
+
+#triangle3 {
+    top: 100px;
+    left: 700px;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid green;
+    transform: rotate(180deg);
+}
+#roof {
+    top:300px;
+    left:100px;
+    border-left:120px solid transparent;
+    border-right:120px solid transparent;
+    border-bottom: 160px solid grey;
+    transform: rotate(45deg);
+}
+#wall {
+    width: 100px;
+    height: 150px;
+    background-color: brown;
+    top:300px;
+    left:300px;
+}
+#window {
+    width: 50px;
+    height: 75px;
+    background-color: blue;
+    top:400px;
+    left:600px;
+}
 
 .footer{
     width:100%;
