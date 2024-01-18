@@ -44,9 +44,11 @@ li{
     /* align-items: center; */
 }
 .backtext{
-    width: 100%;
-    flex:35%;
-    text-align: center; 
+    position: absolute;
+top:110px;
+right:100px;
+width:20%;
+    
 }
 body {
     font-family: Arial, sans-serif;
@@ -84,16 +86,20 @@ body {
     width: 40px;
     height: 60px;
     background-color: brown;
+    animation-duration: 4s;
+    animation-iteration-count:infinite;
     
 }
 #triangle1 {
     position: absolute;
     top: 100px;
     left: 300px;
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    border-bottom: 100px solid lightgreen;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 60px solid lightgreen;
     /* transform: rotate(90deg); */
+    animation-duration: 4s;
+    animation-iteration-count:infinite;
 
 }
 
@@ -101,10 +107,12 @@ body {
     position: absolute;
     top: 100px;
     left: 500px;
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
     border-bottom: 80px solid lightseagreen;
     transform: rotate(135deg);
+    animation-duration: 4s;
+    animation-iteration-count:infinite;
 }
 
 #triangle3 {
@@ -114,6 +122,8 @@ body {
     border-right: 50px solid transparent;
     border-bottom: 100px solid green;
     transform: rotate(180deg);
+    animation-duration: 4s;
+    animation-iteration-count:infinite;
 }
 #roof {
     top:300px;
@@ -122,13 +132,17 @@ body {
     border-right:120px solid transparent;
     border-bottom: 160px solid grey;
     /* transform: rotate(45deg); */
+    animation-duration: 4s;
+    animation-iteration-count:infinite;
 }
 #wall {
     width: 100px;
     height: 150px;
-    background-color: brown;
+    background-color: red;
     top:300px;
     left:300px;
+    animation-duration: 4s;
+    animation-iteration-count:infinite;
 }
 #window {
     width: 50px;
@@ -136,6 +150,8 @@ body {
     background-color: blue;
     top:400px;
     left:600px;
+    animation-duration: 4s;
+    animation-iteration-count:infinite;
 }
 
 .footer{
@@ -175,10 +191,18 @@ a{
 }
 h1{
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
 }
 h2{
     font-family: Arial, Helvetica, sans-serif;
 }
 p{
     font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes spin { 
+    100% { 
+        -webkit-transform: rotate(360deg); 
+        transform:rotate(360deg); 
+    } 
 }

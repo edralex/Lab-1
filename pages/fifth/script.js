@@ -58,18 +58,17 @@ function checkConditions()
   let checker = true;
   if ((item.getBoundingClientRect().left > item2.getBoundingClientRect().left) && (item.getBoundingClientRect().left < (item2.getBoundingClientRect().left + 50)))
   {
-    item.style.backgroundColor = 'green';
-    
+    item.style.backgroundColor = 'blue';
   }
   else
   {
-    item.style.backgroundColor = 'blue';
+    item.style.backgroundColor = 'olive';
     checker = checker && false;
   }
 
   if ((item3.getBoundingClientRect().left > item2.getBoundingClientRect().left-70) && (item3.getBoundingClientRect().left < (item2.getBoundingClientRect().left -40)))
   {
-    item3.style.borderBottomColor = 'green';
+    item3.style.borderBottomColor = 'darksalmon';
   }
   else
   {
@@ -79,7 +78,7 @@ function checkConditions()
 
   if ((item4.getBoundingClientRect().left > item7.getBoundingClientRect().left-40) && (item4.getBoundingClientRect().left < (item7.getBoundingClientRect().left)))
   {
-    item4.style.borderBottomColor = 'pink';
+    item4.style.borderBottomColor = 'lightgreen';
   }
   else
   {
@@ -89,7 +88,7 @@ function checkConditions()
 
   if ((item5.getBoundingClientRect().left > item7.getBoundingClientRect().left-40) && (item5.getBoundingClientRect().left < (item7.getBoundingClientRect().left)))
   {
-    item5.style.borderBottomColor = 'pink';
+    item5.style.borderBottomColor = 'lightseagreen';
   }
   else
   {
@@ -99,12 +98,32 @@ function checkConditions()
 
   if ((item6.getBoundingClientRect().left > item7.getBoundingClientRect().left-40) && (item6.getBoundingClientRect().left < (item7.getBoundingClientRect().left)))
   {
-    item6.style.borderBottomColor = 'pink';
+    item6.style.borderBottomColor = 'green';
   }
   else
   {
     item6.style.borderBottomColor = 'grey';
     checker = checker && false;
+  }
+
+  if ((item7.getBoundingClientRect().left > (item2.getBoundingClientRect().left-300)) && (item7.getBoundingClientRect().left < (item2.getBoundingClientRect().left-200)))
+  {
+    item7.style.backgroundColor = 'brown';
+  }
+  else
+  {
+    item7.style.backgroundColor = 'grey';
+    checker = checker && false;
+  }
+  if (checker)
+  {
+    item.style.animationName = 'spin';
+    item2.style.animationName = 'spin';
+    item3.style.animationName = 'spin';
+    item4.style.animationName = 'spin';
+    item5.style.animationName = 'spin';
+    item6.style.animationName = 'spin';
+    item7.style.animationName = 'spin';
   }
 
 }
