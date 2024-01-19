@@ -13,16 +13,11 @@ document.addEventListener("DOMContentLoaded", function () {
   draggableElements.forEach(element => {
       element.addEventListener('mousedown', function (e) {
               isDragging = true;
-              offsetX = e.clientX - element.getBoundingClientRect().left;
-              offsetY = e.clientY - element.getBoundingClientRect().top / 2;
       });
 
       element.addEventListener('mousemove', function (e) {
 
           if (isDragging) {
-              currentX = e.clientX - offsetX;
-              currentY = e.clientY - offsetY;
-
               element.style.left = `${e.clientX-element.getBoundingClientRect().width / 2}px`;
               element.style.top = `${e.clientY - element.getBoundingClientRect().height / 2 - 100}px`;
           }
