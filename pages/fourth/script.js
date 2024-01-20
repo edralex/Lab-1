@@ -5,58 +5,35 @@ let shuffledIndexes = [];
 let clickCount = 0;
 
 function shuffleArray(array) {
-  const shuffledArray = array.slice();
-  for (let i = shuffledArray.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
-  }
-  return shuffledArray;
+  return array.sort(() => Math.random() - 0.5);
 }
 
-function initializeIndexes() {
-  shuffledIndexes = shuffleArray(Array.from({ length: latinPhrases.length }, (_, index) => index));
+function initializeIndexes() {        //... => 1,2,3,4 [обратно в массив]
+  shuffledIndexes = shuffleArray([...Array(latinPhrases.length).keys()]);
 }
 
 initializeIndexes();
 
 function createRow() {
-  const tableBody = document.getElementById('phrasesTableBody');
   if (shuffledIndexes.length === 0) {
     alert('Фразы закончились');
     return;
   }
 
-  if (shuffledIndexes.length > 0) {
-    const latinIndex = shuffledIndexes.pop();
-    const russianIndex = latinIndex;
+  const tableBody = document.getElementById('phrasesTableBody');
+  const latinIndex = shuffledIndexes.pop();
+  const row = tableBody.insertRow();
 
-    const row = tableBody.insertRow();
-    const cell1 = row.insertCell(0);
-    const cell2 = row.insertCell(1);
-
-    cell1.textContent = latinPhrases[latinIndex];
-    cell2.textContent = russianTranslations[russianIndex];
-
-
-
-    if (tableBody.children.length % 2 === 0) {
-      row.classList.add('class1');
-    } else {
-      row.classList.add('class2');
-    }
-  }
+  row.insertCell().textContent = latinPhrases[latinIndex];
+  row.insertCell().textContent = russianTranslations[latinIndex];
+  row.classList.add(tableBody.children.length % 2 === 0 ? 'class1' : 'class2');
 }
 
 function changeFontStyle() {
-    clickCount++;
+  clickCount++;
+  const boldOrNormal = clickCount % 2 === 0 ? 'bold' : 'normal';
+  Array.from(document.querySelectorAll('#phrasesTableBody tr:nth-child(odd) td')).forEach(cell => {
+    cell.style.fontWeight = boldOrNormal;
+  });
+}
   
-    const tableRows = document.getElementById('phrasesTableBody').getElementsByTagName('tr');
-    for (let i = 0; i < tableRows.length; i++) {
-      if (i % 2 === 1) {
-        const cells = tableRows[i].getElementsByTagName('td');
-        for (let j = 0; j < cells.length; j++) {
-          cells[j].style.fontWeight = clickCount % 2 === 0 ? 'bold' : 'normal';
-        }
-      }
-    }
-  }
